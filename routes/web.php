@@ -25,8 +25,20 @@ Route::get('/futbol5', [App\Http\Controllers\PageController::class, 'futbol5'])-
 Route::get('/futbol7', [App\Http\Controllers\PageController::class, 'futbol7'])->name('futbol7')->middleware('auth');
 Route::get('/futbolrapido', [App\Http\Controllers\PageController::class, 'futbolrapido'])->name('futbolrapido')->middleware('auth');
 
+//Generales
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/', [App\Http\Controllers\PageController::class, 'landing'])->name('landing');
+
+//Promociones
+Route::get('/promociones', [App\Http\Controllers\PageController::class, 'mostrarPromociones'])->name('promociones');
+Route::get('/crearPromociones', [App\Http\Controllers\PageController::class, 'crearPromociones'])->name('crearpromociones')->middleware('checkRole');
+Route::post('/postPromociones', [App\Http\Controllers\PageController::class, 'postPromociones'])->name('postPromociones')->middleware('checkRole');
+
+//Reservas
+Route::get('/reservas', [App\Http\Controllers\PageController::class, 'mostrarReservas'])->name('reservas')->middleware('checkRole');
+Route::post('/buscarReservas', [App\Http\Controllers\PageController::class, 'buscarReservas'])->name('buscarReservas')->middleware('checkRole');
+
+
 
 Route::get('/test', [App\Http\Controllers\PageController::class, 'index'])->name('test')->middleware('checkRole');
 

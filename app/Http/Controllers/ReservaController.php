@@ -10,6 +10,8 @@ use App\Models\Futbol5;
 use App\Models\Futbol7;
 use App\Models\Futbolrap;
 use App\Models\User;
+use App\Models\Promo;
+
 
 class ReservaController extends Controller
 {

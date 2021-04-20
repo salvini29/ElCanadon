@@ -39,14 +39,15 @@
                               <a class="nav-item nav-link" href="{{ route('futbol5') }}"><h6>Futbol 5</h6></a>
                               <a class="nav-item nav-link" href="{{ route('futbol7') }}"><h6>Futbol 7</h6></a>
                               <a class="nav-item nav-link" href="{{ route('futbolrapido') }}"><h6>Futbol Rapido</h6></a>
+                              <a class="nav-item nav-link" href="{{ route('promociones') }}"><h6>Promociones</h6></a>
                             </div>
                         </div>
                     @else
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                               <a class="nav-item nav-link active" href="{{ route('home') }}"><h6>Inicio</h6></a>
-                              <a class="nav-item nav-link" href="{{ route('futbol5') }}"><h6>Reservas</h6></a>
-                              <a class="nav-item nav-link" href="{{ route('futbol5') }}"><h6>Crear Promo</h6></a>
+                              <a class="nav-item nav-link" href="{{ route('reservas') }}"><h6>Reservas</h6></a>
+                              <a class="nav-item nav-link" href="{{ route('crearpromociones') }}"><h6>Crear Promo</h6></a>
                             </div>
                         </div>
                     @endif
