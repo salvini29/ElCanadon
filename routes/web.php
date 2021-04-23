@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//Conocenos
+Route::get('/conocenos', [App\Http\Controllers\PageController::class, 'conocenos'])->name('conocenos');
+
 //Crear reserva
 Route::post('/crearReserva5', [App\Http\Controllers\ReservaController::class, 'crearReserva5'])->name('crearReserva5')->middleware('auth');
 Route::post('/crearReserva7', [App\Http\Controllers\ReservaController::class, 'crearReserva7'])->name('crearReserva7')->middleware('auth');
@@ -33,14 +36,19 @@ Route::get('/', [App\Http\Controllers\PageController::class, 'landing'])->name('
 Route::get('/promociones', [App\Http\Controllers\PageController::class, 'mostrarPromociones'])->name('promociones');
 Route::get('/crearPromociones', [App\Http\Controllers\PageController::class, 'crearPromociones'])->name('crearpromociones')->middleware('checkRole');
 Route::post('/postPromociones', [App\Http\Controllers\PageController::class, 'postPromociones'])->name('postPromociones')->middleware('checkRole');
+Route::post('/cambiarEstadoPromo', [App\Http\Controllers\PageController::class, 'cambiarEstadoPromo'])->name('cambiarEstadoPromo')->middleware('checkRole');
+
+//DB
+Route::get('/limpiarDB', [App\Http\Controllers\PageController::class, 'limpiarDB'])->name('limpiarDB')->middleware('checkRole');
+Route::post('/limpiarDBfecha', [App\Http\Controllers\PageController::class, 'limpiarDBfecha'])->name('limpiarDBfecha')->middleware('checkRole');
 
 //Reservas
 Route::get('/reservas', [App\Http\Controllers\PageController::class, 'mostrarReservas'])->name('reservas')->middleware('checkRole');
 Route::post('/buscarReservas', [App\Http\Controllers\PageController::class, 'buscarReservas'])->name('buscarReservas')->middleware('checkRole');
 
-
-
-Route::get('/test', [App\Http\Controllers\PageController::class, 'index'])->name('test')->middleware('checkRole');
+//Paypal
+Route::get('/paypal/pay', [App\Http\Controllers\PaymentController::class, 'payWithPayPal'])->name('paypalpay');
+Route::get('/paypal/status', [App\Http\Controllers\PaymentController::class, 'payPalStatus'])->name('paypalstatus');
 
 
 /*Route::get('/futbol7', function () {

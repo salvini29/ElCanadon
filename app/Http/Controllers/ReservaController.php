@@ -41,7 +41,8 @@ class ReservaController extends Controller
                 {
                     Futbol5::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 1]);
                     $status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora;
-                    return redirect()->route('futbol5')->with('status',$status);
+                    return redirect()->route('paypalpay');
+                    //return redirect()->route('futbol5')->with('status',$status);
                 }
             }
             else
@@ -83,7 +84,8 @@ class ReservaController extends Controller
                 {
                     Futbol7::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 1]);
                     $status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora;
-                    return redirect()->route('futbol7')->with('status',$status);
+                    return redirect()->route('paypalpay');
+                    //return redirect()->route('futbol7')->with('status',$status);
                 }
             }
             else
@@ -126,7 +128,8 @@ class ReservaController extends Controller
 		        {
 		        	Futbolrap::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 1]);
 		        	$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora;
-                    return redirect()->route('futbolrapido')->with('status',$status);
+                    return redirect()->route('paypalpay');
+                    //return redirect()->route('futbolrapido')->with('status',$status);
 		        }
 	        }
 	        else

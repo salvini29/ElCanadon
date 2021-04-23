@@ -41,6 +41,12 @@ class PageController extends Controller
         return view('landing');
     }
 
+    public function conocenos()
+    {
+        return "holaa";
+        return view('conocenos');
+    }
+
     public function mostrarPromociones()
     {
         $promos = Promo::where('activa', 1)->get();
@@ -59,6 +65,18 @@ class PageController extends Controller
         return redirect()->route('crearpromociones');
     }
 
+    public function cambiarEstadoPromo(Request $request)
+    {
+        if ($request->estadoPromo == 1) {
+            Promo::where('id', $request->idPromo)->update(['activa' => 0]);
+            return redirect()->route('crearpromociones');
+
+        } elseif ($request->estadoPromo == 0) {
+            Promo::where('id', $request->idPromo)->update(['activa' => 1]);
+            return redirect()->route('crearpromociones');
+        }
+    }
+
     public function mostrarReservas()
     {
         return view('reservas');
@@ -72,5 +90,16 @@ class PageController extends Controller
 
         return view('reservas')->with('futbol5',$reservas5)->with('futbol7',$reservas7)->with('futbolrap',$reservasrap);
     }
+
+    public function limpiarDB()
+    {
+        return view('limpiarDB');
+    }
+
+    public function limpiarDBfecha(Request $request)
+    {
+        return $request;
+    }
+
 
 }

@@ -45,11 +45,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
+                    {{-- <div class="navbar-nav">
                       <a class="nav-item nav-link active" href="{{ route('home') }}"><h6>Inicio</h6></a>
-                    </div>
-                </div>
+                      <a class="nav-item nav-link active" href="{{ route('promociones') }}"><h6>Promociones</h6></a>
+                      <a class="nav-item nav-link active" href="{{ route('conocenos') }}"><h6>Conocenos</h6></a>
+                    </div> --}}
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -59,19 +59,31 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        <!-- Authentication Links -->                  
                         @guest
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}"><h6>Inicio</h6></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('promociones') }}"><h6>Promociones</h6></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('conocenos') }}"><h6>Conocenos</h6></a>
+                            </li>
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}"><h6>{{ __('Login') }}</h6></a>
                                 </li>
                             @endif
                             
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><h6>Registro</h6></a>
                                 </li>
                             @endif
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -82,7 +94,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -30,10 +30,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                @if(isset(Auth::user()->name))
+        {{--@if(isset(Auth::user()->name))
 
                     @if ( Auth::user()->email != 'admin@admin.com')
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                               <a class="nav-item nav-link active" href="{{ route('home') }}"><h6>Inicio</h6></a>
                               <a class="nav-item nav-link" href="{{ route('futbol5') }}"><h6>Futbol 5</h6></a>
@@ -41,18 +40,16 @@
                               <a class="nav-item nav-link" href="{{ route('futbolrapido') }}"><h6>Futbol Rapido</h6></a>
                               <a class="nav-item nav-link" href="{{ route('promociones') }}"><h6>Promociones</h6></a>
                             </div>
-                        </div>
                     @else
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                               <a class="nav-item nav-link active" href="{{ route('home') }}"><h6>Inicio</h6></a>
                               <a class="nav-item nav-link" href="{{ route('reservas') }}"><h6>Reservas</h6></a>
                               <a class="nav-item nav-link" href="{{ route('crearpromociones') }}"><h6>Crear Promo</h6></a>
+                              <a class="nav-item nav-link" href="{{ route('crearpromociones') }}"><h6>LimpiarDB</h6></a>
                             </div>
-                        </div>
                     @endif
 
-                @endif
+                @endif --}}
 
             {{--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
@@ -73,6 +70,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -85,6 +83,41 @@
                                 </li>
                             @endif
                         @else
+
+                            @if(isset(Auth::user()->name))
+                                @if ( Auth::user()->email != 'admin@admin.com')
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link active" href="{{ route('home') }}"><h6>Inicio</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('futbol5') }}"><h6>Futbol 5</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('futbol7') }}"><h6>Futbol 7</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('futbolrapido') }}"><h6>Futbol Rapido</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('promociones') }}"><h6>Promociones</h6></a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link active" href="{{ route('home') }}"><h6>Inicio</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('reservas') }}"><h6>Reservas</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('crearpromociones') }}"><h6>Crear Promo</h6></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-item nav-link" href="{{ route('limpiarDB') }}"><h6>LimpiarDB</h6></a>
+                                </li>
+                                @endif
+
+                            @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -94,7 +127,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
