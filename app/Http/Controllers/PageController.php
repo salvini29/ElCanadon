@@ -43,7 +43,6 @@ class PageController extends Controller
 
     public function conocenos()
     {
-        return "holaa";
         return view('conocenos');
     }
 
@@ -98,7 +97,12 @@ class PageController extends Controller
 
     public function limpiarDBfecha(Request $request)
     {
-        return $request;
+        //$borrar5 = Futbol5::where( 'fecha' ,'<=', $request->fechaborrar)->get();
+        //$borrar7 = Futbol7::where( 'fecha' ,'<=', $request->fechaborrar)->get();
+        //$borrarRap = Futbolrap::where( 'fecha' ,'<=', $request->fechaborrar)->get();
+
+        $status = 'Has limpiado todos los datos desde '.$request->fechaborrar.'!';
+        return redirect()->route('limpiarDB')->with('status',$status);
     }
 
 

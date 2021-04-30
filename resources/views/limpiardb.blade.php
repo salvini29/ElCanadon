@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-  
+
         <div class="col-md-8">
             <br>
             <div class="card text-white bg-danger mb-3">
@@ -13,6 +13,15 @@
                 <p class="card-text">En este formulario escribo una fecha y borro en la Base de Datos todas las reservas generadas antes de esa fecha.</p>
               </div>
             </div>
+        </div>
+
+        <div class="col-md-8">
+            <br>
+            @if(session('status'))
+              <div class="alert alert-success" role="alert">
+                  {{ session('status') }}
+              </div>
+            @endif
         </div>
 
         <div class="col-md-8">

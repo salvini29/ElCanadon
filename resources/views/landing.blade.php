@@ -69,7 +69,7 @@
                                 <a class="nav-link" href="{{ route('promociones') }}"><h6>Promociones</h6></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('conocenos') }}"><h6>Conocenos</h6></a>
+                                <a class="nav-link" href="{{ route('landing') }}"><h6>Conocenos</h6></a>
                             </li>
 
                             @if (Route::has('login'))
@@ -115,11 +115,11 @@
       <div class="col">
           
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
           <div class="card">
             <h5 class="card-header">Google</h5>
             <div class="card-body">
-              <iframe width="500" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=es&amp;q=Les%20Rambles,%201%20Barcelona,%20Spain+(Canadon)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+             <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=es&amp;q=Av.%20Los%20Perales,%2019,%2029651%20Las%20Lagunas%20de%20Mijas,%20M%C3%A1laga,%20Espa%C3%B1a+()&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
             </div>
           </div>
       </div>
@@ -135,11 +135,11 @@
       <div class="col">
           
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
           <div class="card">
             <h5 class="card-header">Facebook</h5>
             <div class="card-body">
-              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+              <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FEl-Ca%25C3%25B1adon-Futbol-VAR-101272132081793%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
           </div>
       </div>
@@ -148,13 +148,13 @@
       </div>
     </div>
 
-    <br>
+    {{-- <br>
     <br>
     <div class="row">
       <div class="col">
           
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
           <div class="card">
             <h5 class="card-header">Youtube</h5>
             <div class="card-body">
@@ -165,7 +165,7 @@
       <div class="col">
        
       </div>
-    </div>
+    </div> --}}
 
     <br>
     <br>
@@ -173,11 +173,11 @@
       <div class="col">
           
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
           <div class="card">
             <h5 class="card-header">Instagram</h5>
-            <div class="card-body">             
-              <iframe width="500" height="500" src="https://www.instagram.com/p/CNekMWWAnaw/embed" frameborder="0"></iframe>
+            <div class="card-body">
+              <iframe width="500" height="500" src="https://www.instagram.com/p/CN29NInscT-/embed" frameborder="0"></iframe>             
             </div>
           </div>
       </div>
@@ -186,13 +186,13 @@
       </div>
     </div>
 
-    <br>
+    {{-- <br>
     <br>
     <div class="row">
       <div class="col">
           
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
           <div class="card">
             <h5 class="card-header">TikTok</h5>
             <div class="card-body">
@@ -203,7 +203,7 @@
       <div class="col">
        
       </div>
-    </div>
+    </div> --}}
 
     {{-- <br>
     <br>
@@ -224,13 +224,13 @@
       </div>
     </div> --}}
 
-    <br>
+    {{-- <br>
     <br>
     <div class="row">
       <div class="col">
           
       </div>
-      <div class="col-6">
+      <div class="col-md-6">
           <div class="card">
             <h5 class="card-header">Twitter</h5>
             <div class="card-body">
@@ -243,7 +243,7 @@
       <div class="col">
        
       </div>
-    </div>
+    </div> --}}
 
     <br>
     <br>

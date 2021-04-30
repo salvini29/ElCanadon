@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-//Conocenos
-Route::get('/conocenos', [App\Http\Controllers\PageController::class, 'conocenos'])->name('conocenos');
-
 //Crear reserva
 Route::post('/crearReserva5', [App\Http\Controllers\ReservaController::class, 'crearReserva5'])->name('crearReserva5')->middleware('auth');
 Route::post('/crearReserva7', [App\Http\Controllers\ReservaController::class, 'crearReserva7'])->name('crearReserva7')->middleware('auth');
@@ -30,7 +27,10 @@ Route::get('/futbolrapido', [App\Http\Controllers\PageController::class, 'futbol
 
 //Generales
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/', [App\Http\Controllers\PageController::class, 'landing'])->name('landing');
+//Route::get('/', [App\Http\Controllers\PageController::class, 'landing'])->name('landing');
+//Route::get('/conocenos', [App\Http\Controllers\PageController::class, 'conocenos'])->name('conocenos');
+Route::get('/', [App\Http\Controllers\PageController::class, 'conocenos'])->name('conocenos');
+Route::get('/conocenos', [App\Http\Controllers\PageController::class, 'landing'])->name('landing');
 
 //Promociones
 Route::get('/promociones', [App\Http\Controllers\PageController::class, 'mostrarPromociones'])->name('promociones');
