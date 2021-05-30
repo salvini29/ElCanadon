@@ -46,9 +46,14 @@ Route::post('/limpiarDBfecha', [App\Http\Controllers\PageController::class, 'lim
 Route::get('/reservas', [App\Http\Controllers\PageController::class, 'mostrarReservas'])->name('reservas')->middleware('checkRole');
 Route::post('/buscarReservas', [App\Http\Controllers\PageController::class, 'buscarReservas'])->name('buscarReservas')->middleware('checkRole');
 
+//Metodos de pago
+
 //Paypal
 Route::get('/paypal/pay', [App\Http\Controllers\PaymentController::class, 'payWithPayPal'])->name('paypalpay');
 Route::get('/paypal/status', [App\Http\Controllers\PaymentController::class, 'payPalStatus'])->name('paypalstatus');
+//Stripe
+Route::get('/stripe',[App\Http\Controllers\PaymentController::class, 'checkoutStripe'])->name('stripepay');
+Route::post('/stripe',[App\Http\Controllers\PaymentController::class, 'afterPaymentStripe'])->name('checkout.credit-card');
 
 
 /*Route::get('/futbol7', function () {

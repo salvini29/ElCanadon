@@ -20,6 +20,37 @@
             </div>
         </div> --}}
 
+        @if(session('status'))
+                <div class="col-md-8">
+                    <br>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                </div>
+        @endif
+            
+        @if(session('failed'))
+            <div class="col-md-8">
+                <br>           
+                <div class="alert alert-danger" role="alert">
+                    {{ session('failed') }}
+                </div>
+            </div>
+         @endif
+
+        @if(session()->has('fechaReservaPendiente'))
+            <div class="col-md-8">
+                <br>
+                <div class="card text-white bg-danger mb-3">
+                  <h5 class="card-header">Tiene una reserva pendiente de paga</h5>
+                  <div class="card-body">
+                    <h5 class="card-title">Donde termino la reserva?</h5>
+                    <a href="{{route('stripepay')}}" class="btn btn-dark">Click aqui</a>
+                  </div>
+                </div>
+            </div>
+        @endif
+
         <div class="col-md-8">
             <br>
             <div class="card">

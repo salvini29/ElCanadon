@@ -83,16 +83,16 @@ class PageController extends Controller
 
     public function buscarReservas(Request $request)
     {
-        $reservas5 = Futbol5::where('fecha', $request->fechares)->get();
-        $reservas7 = Futbol7::where('fecha', $request->fechares)->get();
-        $reservasrap = Futbolrap::where('fecha', $request->fechares)->get();
-
+        $reservas5 = Futbol5::where('fecha', $request->fechares)->join('users', 'users.id', '=', 'futbol5s.user_id')->get();
+        $reservas7 = Futbol7::where('fecha', $request->fechares)->join('users', 'users.id', '=', 'futbol7s.user_id')->get();
+        $reservasrap = Futbolrap::where('fecha', $request->fechares)->join('users', 'users.id', '=', 'futbolraps.user_id')->get();
         return view('reservas')->with('futbol5',$reservas5)->with('futbol7',$reservas7)->with('futbolrap',$reservasrap);
+
     }
 
     public function limpiarDB()
     {
-        return view('limpiarDB');
+        return view('limpiardb');
     }
 
     public function limpiarDBfecha(Request $request)

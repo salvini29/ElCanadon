@@ -32,7 +32,7 @@
                       <li class="list-group-item active">Reservas Futbol 5</li>
                       @foreach($futbol5 as $reser)
 
-                          <li class="list-group-item">El dia: {{$reser->fecha}} en el horario: {{$reser->hora}} y estado de paga: {{$reser->pagado}}</li>
+                          <li class="list-group-item">El dia: {{$reser->fecha}} por: {{$reser->email}} en el horario: {{$reser->hora}} y estado de paga: {{$reser->pagado}}</li>
 
                       @endforeach
               </ul>
@@ -48,7 +48,7 @@
                       <li class="list-group-item active">Reservas Futbol 7</li>
                       @foreach($futbol7 as $reser)
 
-                          <li class="list-group-item">El dia: {{$reser->fecha}} en el horario: {{$reser->hora}} y estado de paga: {{$reser->pagado}}</li>
+                          <li class="list-group-item">El dia: {{$reser->fecha}} por: {{$reser->email}} en el horario: {{$reser->hora}} y estado de paga: {{$reser->pagado}}</li>
 
                       @endforeach
               </ul>
@@ -64,7 +64,7 @@
                       <li class="list-group-item active">Reservas Futbol Rapido</li>
                       @foreach($futbolrap as $reser)
 
-                          <li class="list-group-item">El dia: {{$reser->fecha}} en el horario: {{$reser->hora}} y estado de paga: {{$reser->pagado}}</li>
+                          <li class="list-group-item">El dia: {{$reser->fecha}} por: {{$reser->email}} en el horario: {{$reser->hora}} y estado de paga: {{$reser->pagado}}</li>
 
                       @endforeach
               </ul>

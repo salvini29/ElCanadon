@@ -35,8 +35,8 @@
                     <div class="form-group">
                         <label for="pagar">Pagar:</label>
                         <select class="form-control" id="pagar" name="pagar">
-                          <option>Pagar en persona</option>
                           <option>Pagar online</option>
+                          {{-- <option>Pagar online</option> --}}
                         </select>
                     </div>
                     {{-- <div class="form-check">

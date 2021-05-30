@@ -31,19 +31,24 @@ class ReservaController extends Controller
         {
             if( strtotime($request->dia) >= strtotime(date("Y-m-d")))
             {
-                if ( $request->pagar == "Pagar en persona")
+                if ( $request->pagar == "Pagar online")
                 {
                     Futbol5::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
-                    $status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
-                    return redirect()->route('futbol5')->with('status',$status);
+                    //$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
+                    //return redirect()->route('futbol5')->with('status',$status);
+                    $request->session()->put('fechaReservaPendiente',$request->dia);
+                    $request->session()->put('horaReservaPendiente',$request->hora);
+                    $request->session()->put('canchaReservaPendiente','futbol5');
+
+                    return redirect()->route('stripepay');
                 }
-                else
+                /*else
                 {
                     Futbol5::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 1]);
                     $status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora;
                     return redirect()->route('paypalpay');
                     //return redirect()->route('futbol5')->with('status',$status);
-                }
+                }*/
             }
             else
             {
@@ -74,19 +79,24 @@ class ReservaController extends Controller
         {
             if( strtotime($request->dia) >= strtotime(date("Y-m-d")))
             {
-                if ( $request->pagar == "Pagar en persona")
+                if ( $request->pagar == "Pagar online")
                 {
                     Futbol7::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
-                    $status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
-                    return redirect()->route('futbol7')->with('status',$status);
+                    //$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
+                    //return redirect()->route('futbol7')->with('status',$status);
+                    $request->session()->put('fechaReservaPendiente',$request->dia);
+                    $request->session()->put('horaReservaPendiente',$request->hora);
+                    $request->session()->put('canchaReservaPendiente','futbol7');
+
+                    return redirect()->route('stripepay');
                 }
-                else
+                /*else
                 {
                     Futbol7::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 1]);
                     $status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora;
                     return redirect()->route('paypalpay');
                     //return redirect()->route('futbol7')->with('status',$status);
-                }
+                }*/
             }
             else
             {
@@ -118,19 +128,23 @@ class ReservaController extends Controller
         {
 	        if( strtotime($request->dia) >= strtotime(date("Y-m-d")))
 	        {
-	        	if ( $request->pagar == "Pagar en persona")
+	        	if ( $request->pagar == "Pagar online")
 		        {
 		        	Futbolrap::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
-		        	$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
-                    return redirect()->route('futbolrapido')->with('status',$status);
+		        	//$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
+                    $request->session()->put('fechaReservaPendiente',$request->dia);
+                    $request->session()->put('horaReservaPendiente',$request->hora);
+                    $request->session()->put('canchaReservaPendiente','futbolrap');
+
+                    return redirect()->route('stripepay');
 		        }
-		        else
+		        /*else
 		        {
 		        	Futbolrap::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 1]);
 		        	$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora;
                     return redirect()->route('paypalpay');
                     //return redirect()->route('futbolrapido')->with('status',$status);
-		        }
+		        }*/
 	        }
 	        else
 	        {
