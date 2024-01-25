@@ -33,7 +33,7 @@ class ReservaController extends Controller
             {
                 if ( $request->pagar == "Pagar online")
                 {
-                    Futbol5::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
+                    //Futbol5::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);                                 
                     //$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
                     //return redirect()->route('futbol5')->with('status',$status);
                     $request->session()->put('fechaReservaPendiente',$request->dia);
@@ -81,7 +81,7 @@ class ReservaController extends Controller
             {
                 if ( $request->pagar == "Pagar online")
                 {
-                    Futbol7::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
+                    //Futbol7::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
                     //$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
                     //return redirect()->route('futbol7')->with('status',$status);
                     $request->session()->put('fechaReservaPendiente',$request->dia);
@@ -130,7 +130,7 @@ class ReservaController extends Controller
 	        {
 	        	if ( $request->pagar == "Pagar online")
 		        {
-		        	Futbolrap::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
+		        	//Futbolrap::create(['user_id' => Auth::user()->id, 'fecha' => $request->dia, 'hora' => $request->hora, 'pagado' => 0]);
 		        	//$status = 'Has realizado la reserva para el dia '.$request->dia.' y la hora '.$request->hora.' recuerda que tendras que pagar en el lugar';
                     $request->session()->put('fechaReservaPendiente',$request->dia);
                     $request->session()->put('horaReservaPendiente',$request->hora);

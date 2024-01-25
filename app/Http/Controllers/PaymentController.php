@@ -41,7 +41,7 @@ class PaymentController extends Controller
 
  		$this->apiContext = new ApiContext(
         new OAuthTokenCredential(
-            $payPalConfig['client_id'],$payPalConfig['secret']     // ClientID      // ClientSecret
+            $payPalConfig['client_id'],$payPalConfig['secret']
         )
 		);
 
@@ -78,8 +78,6 @@ class PaymentController extends Controller
 		    //echo "\n\nRedirect user to approval_url: " . $payment->getApprovalLink() . "\n";
 		}
 		catch (PayPalConnectionException $ex) {
-		    // This will print the detailed information on the exception.
-		    //REALLY HELPFUL FOR DEBUGGING
 		    echo $ex->getData();
 		}
 	}
@@ -99,7 +97,6 @@ class PaymentController extends Controller
         $execution = new PaymentExecution();
         $execution->setPayerId($payerId);
 
-        /** Execute the payment **/
         $result = $payment->execute($execution, $this->apiContext);
 
         if ($result->getState() === 'approved') {
@@ -116,7 +113,6 @@ class PaymentController extends Controller
 
 	public function checkoutStripe(Request $request)
     {   
-        // Enter Your Stripe Secret
         \Stripe\Stripe::setApiKey('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');
        	
         if ( ($request->session()->get('canchaReservaPendiente')) == 'futbol5' ) 
@@ -158,15 +154,18 @@ class PaymentController extends Controller
 
     	if ( ($request->session()->get('canchaReservaPendiente')) == 'futbol5' ) 
     	{	
-    		Futbol5::where('user_id', Auth::user()->id)->where('fecha', ($request->session()->get('fechaReservaPendiente')))->where('hora', ($request->session()->get('horaReservaPendiente')))->update(['pagado' => 1]);
+    		//Futbol5::where('user_id', Auth::user()->id)->where('fecha', ($request->session()->get('fechaReservaPendiente')))->where('hora', ($request->session()->get('horaReservaPendiente')))->update(['pagado' => 1]);
+    		Futbol5::create(['user_id' => Auth::user()->id, 'fecha' => ($request->session()->get('fechaReservaPendiente')), 'hora' => ($request->session()->get('horaReservaPendiente')), 'pagado' => 1]);
 		} 
 		elseif ( ($request->session()->get('canchaReservaPendiente')) == 'futbol7' ) 
 		{
-    		Futbol7::where('user_id', Auth::user()->id)->where('fecha', ($request->session()->get('fechaReservaPendiente')))->where('hora', ($request->session()->get('horaReservaPendiente')))->update(['pagado' => 1]);
+    		//Futbol7::where('user_id', Auth::user()->id)->where('fecha', ($request->session()->get('fechaReservaPendiente')))->where('hora', ($request->session()->get('horaReservaPendiente')))->update(['pagado' => 1]);
+    		Futbol7::create(['user_id' => Auth::user()->id, 'fecha' => ($request->session()->get('fechaReservaPendiente')), 'hora' => ($request->session()->get('horaReservaPendiente')), 'pagado' => 1]);
 		}
 		elseif ( ($request->session()->get('canchaReservaPendiente')) == 'futbolrap' ) 
 		{
-    		Futbolrap::where('user_id', Auth::user()->id)->where('fecha', ($request->session()->get('fechaReservaPendiente')))->where('hora', ($request->session()->get('horaReservaPendiente')))->update(['pagado' => 1]);
+    		//Futbolrap::where('user_id', Auth::user()->id)->where('fecha', ($request->session()->get('fechaReservaPendiente')))->where('hora', ($request->session()->get('horaReservaPendiente')))->update(['pagado' => 1]);
+    		Futbolrap::create(['user_id' => Auth::user()->id, 'fecha' => ($request->session()->get('fechaReservaPendiente')), 'hora' => ($request->session()->get('horaReservaPendiente')), 'pagado' => 1]);    		
 		}
 
       	$request->session()->forget('canchaReservaPendiente');
